@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { useFetch } from "../hoc/useFetch";
-import { useModal } from "../hoc/useModal";
+// import { useModal } from "../hoc/useModal";
 // import { useFetch } from "../hoc/Fetch";
 
 // const refetch = fetchData(
