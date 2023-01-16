@@ -1,14 +1,14 @@
 import { Theme } from "@emotion/react";
 
 export const darkTheme: Theme = {
-    bgColor: '#2f3640',
+    bgColor: 'black',
     textColor: 'white',
     accentColor: '#9c88ff',
     cardBgColor: 'transparent',
 };
 
 export const lightTheme: Theme = {
-    bgColor: 'whitesmoke',
+    bgColor: '#fff',
     textColor: 'black',
     accentColor: '#9c88ff',
     cardBgColor: 'white',
@@ -17,5 +17,10 @@ export const lightTheme: Theme = {
 export const flex_center = {
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center'
+}
+
+export const flex_align_center = {
+    display: 'flex',
     alignItems: 'center'
 }

@@ -1,26 +1,30 @@
+import styled from '@emotion/styled';
 import React, { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
-import { isModalAtom } from '../atoms';
-import { Modal } from '../components/modals/Modals';
+import { Footer } from '../components/footer/Footer';
+import { Header } from '../components/header/Header';
 import { Home } from '../pages/Home';
-import { Loading } from '../pages/Loading';
 
 export const Router = () => {
-    const {status} = useRecoilValue(isModalAtom);
     return (
         <BrowserRouter>
             <ErrorBoundary fallback={<div>error</div>}>
-                {/* <Suspense fallback={<Loading></Loading>}> */}
                 <Suspense fallback={<div>loading</div>}>
-                    {status && <Modal />}
-                    <Routes>
-                        <Route path='/' element={<Home />} />
-                        {/* <Route element={<NotFound />} /> */}
-                    </Routes>
+                    <Header />
+                    <Body>
+                        <Routes>
+                            <Route path='/' element={<Home />} />
+                        </Routes>
+                    </Body>
+                    <Footer />
                 </Suspense>
             </ErrorBoundary>
         </BrowserRouter>
     );
 }
+
+const Body = styled.div`
+    padding-top: 80px;
+
+`

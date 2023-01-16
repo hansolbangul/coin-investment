@@ -4,7 +4,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { useRecoilState } from 'recoil';
 import { isDarkAtom } from './atoms';
-import { Footer } from './components/footer/Footer';
+import { Toggle } from './components/footer/Toggle';
 import { GlobalStyle } from './global';
 import { Router } from './router/Router';
 import { darkTheme, lightTheme } from './theme';
@@ -17,7 +17,7 @@ function App() {
       <ReactQueryDevtools initialIsOpen={true} />
       <GlobalStyle />
       <Router />
-      <Footer />
+      <Toggle />
     </ThemeProvider>
   )
 }
