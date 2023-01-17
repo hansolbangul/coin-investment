@@ -43,7 +43,7 @@ export const Switch = ({ onClick, value, width }: SwitchProps) => {
     return (
         <SwitchForm css={{
             ...sizeSetting(width).form
-        }} data-isOn={value} onClick={onClick}>
+        }} data-ison={value} onClick={onClick}>
             <SwitchBtn css={{
                 ...sizeSetting(width).btn
             }} layout transition={spring}>
@@ -56,7 +56,7 @@ export const Switch = ({ onClick, value, width }: SwitchProps) => {
 const SwitchForm = styled.div`
     background-color: ${props => props.theme.textColor};
     color: ${props => props.theme.bgColor};
-    &[data-isOn='true'] {
+    &[data-ison='true'] {
         justify-content: flex-end;
     }
 `
