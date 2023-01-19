@@ -1,46 +1,48 @@
-# Getting Started with Create React App
+# Coin-Investment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- <img width="1715" alt="image" src="https://user-images.githubusercontent.com/72514247/209824600-ca9c8acc-6d2d-4041-9931-43e34b8a9a5f.png"> -->
 
-## Available Scripts
+React + Typescript + Upbit API 를 통한 가상의 코인 투자 사이트
 
-In the project directory, you can run:
+<!-- [Demo Blog](https://morethan-log.vercel.app) | [Demo Resume](https://morethan-log.vercel.app/resume) -->
 
-### `npm start`
+## Features 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**🔥 파이어베이스를 이용**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- firebase를 통한 서버리스 데이터 저장
+- firebase를 통한 로그인 기능 개발
 
-### `npm test`
+**🐞 React.Suspense를 이용**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Suspense를 통한 비동기 로딩 페이지 구현
+- Error-boundary를 통한 비동기 에러 페이지 구현
 
-### `npm run build`
+**😛 emotion를 이용**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- emotion를 통해 직접 컴포넌트의 스타일을 생성
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**🤖 react-query + recoil 을 이용**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- react-query + recoil를 통한 우아한 비동기 구현
 
-### `npm run eject`
+## Todo
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**📉 WebSocket 를 사용한 실시간 코인 가격정보 및 차트**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- WebSocket + Upbit API를 통한 실시간 코인 가격 정보 불러오기
+- 불러온 실시간 데이터를 토대로 차트 생성하기
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**🪙 현 시점 기준 가상의 코인 구매기능**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- 실시간 차트를 통해 가상의 코인을 구매
+- 구매한 코인은 일정량의 수수료를 지불
 
-## Learn More
+**🎁 코인끼리의 스왑 기능**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 구매한 코인은 코인끼리 스왑이 가능
+- 일정량의 스왑 수수료를 지불
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**🤖 광고를 통한 무료 가상 자산을 지급**
+
+- 광고를 통해 가상 거래소에서 사용 가능한 자산을 지급
