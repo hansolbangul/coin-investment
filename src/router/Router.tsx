@@ -9,9 +9,9 @@ import { Home } from '../pages/Home';
 export const Router = () => {
     return (
         <BrowserRouter>
+            <Header />
             <ErrorBoundary fallback={<div>error</div>}>
                 <Suspense fallback={<div>loading</div>}>
-                    <Header />
                     <Body>
                         <Routes>
                             <Route path='/' element={<Home />} />
@@ -26,5 +26,6 @@ export const Router = () => {
 
 const Body = styled.div`
     padding-top: 80px;
-
+    min-height: 100vh;
+    min-width: 100vw;
 `
