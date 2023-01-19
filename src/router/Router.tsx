@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
-import { isModalAtom } from '../atoms';
-import { Modal } from '../components/modals/Modals';
+import { Footer } from '../components/footer/Footer';
+import { Header } from '../components/header/Header';
+import { Test } from '../components/study/Home';
 import { Home } from '../pages/Home';
 import { Loading } from '../pages/Loading';
 
@@ -14,11 +14,13 @@ export const Router = () => {
             <ErrorBoundary fallback={<div>error</div>}>
                 {/* <Suspense fallback={<Loading></Loading>}> */}
                 <Suspense fallback={<div>loading</div>}>
-                    {status && <Modal />}
-                    <Routes>
-                        <Route path='/' element={<Home />} />
-                        {/* <Route element={<NotFound />} /> */}
-                    </Routes>
+                    <Body>
+                        <Routes>
+                            <Route path='/' element={<Home />} />
+                            <Route path='/test' element={< Test/>} />
+                        </Routes>
+                    </Body>
+                    <Footer />
                 </Suspense>
             </ErrorBoundary>
         </BrowserRouter>
