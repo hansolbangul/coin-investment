@@ -1,25 +1,45 @@
-import React, { Suspense, useEffect, useState } from "react";
-import { useFetch } from "../hoc/useFetch";
-import { useModal } from "../hoc/useModal";
-// import { useFetch } from "../hoc/Fetch";
-
-// const refetch = fetchData(
-//     'https://run.mocky.io/v3/8a33e687-bc2f-41ea-b23d-3bc2fb452ead'
-// )
+/** @jsxImportSource @emotion/react */
+import React from "react";
+import { PostBtn } from "../components/button/PostBtn";
+import { Flex } from "../components/components/Direction";
+import { Direction } from "../components/components/Flex";
+import { Accent } from "../global";
 
 export const Home = () => {
-    const { data, refetch } = useFetch('https://run.mocky.io/v3/8a33e687-bc2f-41ea-b23d-3bc2fb452ead', {
-        enabled: false
-    })
-
     return (
-        <Suspense fallback={<div>loading</div>}>
-            <div>
-                <button onClick={() => refetch()}>버튼</button>
-                {/* <pre>{JSON.stringify(data)}</pre> */}
-                <pre>{JSON.stringify(data)}</pre>
-                {/* { userDetails?.name } */}
-            </div>
-        </Suspense>
+            <Direction css={{
+                padding: '20px'
+            }}>
+                <Flex.AlignCenter css={{
+                    // justifyContent: 'space-between',
+                    justifyContent: 'space-around',
+                    padding: '10vmin 4vmin',
+                }}>
+                    <Direction>
+                        <div css={{
+                            fontSize: '8vmin',
+                            fontFamily: 'cookieRun Bold',
+                        }}>
+                            <Accent>'대중'</Accent>을 따라하는 것은<br />
+                            평균으로 <Accent>'후퇴'</Accent>하겠다는 말이다.<br />
+                            <Accent>'나만'</Accent>의 투자를 해보자!
+                        </div>
+                    </Direction>
+                    <Direction>
+                        <Direction.Center css={{
+                            fontSize: '3vmin'
+                        }}>
+                            <span>지금 당장</span>
+                            <span><Accent>'모의투자'</Accent>하러 가기</span>
+                            <PostBtn
+                                ani
+                                css={{
+                                    marginTop: '10px'
+                                }}
+                            onClick={() => console.log('')}>투자하러 가기</PostBtn>
+                        </Direction.Center>
+                    </Direction>
+                </Flex.AlignCenter>
+            </Direction>
     )
 }

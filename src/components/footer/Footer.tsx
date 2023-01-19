@@ -1,24 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import React from "react";
-import { useRecoilState } from "recoil";
-import { isDarkAtom } from "../../atoms";
-import { Circle } from "../circles/Circle";
 
 export const Footer = () => {
-    const [isDark, setIsDark] = useRecoilState(isDarkAtom);
-
-    const changeDarkMode = () => {
-        setIsDark(!isDark);
-    }
 
     return (
-        <Circle onClick={() => changeDarkMode()} style={{
-            position: 'absolute',
-            bottom: '20px',
-            right: '20px',
-            cursor: 'pointer'
-        }}>
-            O
-        </Circle>
+        <div>
+            이 페이지에는 데브시스터즈에서 제작한 ‘쿠키런 글꼴’이 적용되어 있습니다.
+        </div>
     )
 }
