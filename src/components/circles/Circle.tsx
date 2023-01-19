@@ -1,17 +1,29 @@
 /** @jsxImportSource @emotion/react */
+import { useTheme } from "@emotion/react";
 import React, { ReactNode } from "react";
-import { Props } from "../../services/interface";
-import { flex_center } from "../../theme";
+import { flex_center } from "../../global";
+import { Props, Size } from "../../services/interface";
 
-export const Circle = ({ children, ...props }: Props) => {
-    console.log(children, props);
+interface CircleProps extends Props {
+    size?: string
+}
+
+const btnSize: Size = {
+    small: '30px',
+    default: '50px',
+}
+
+export const Circle = ({ children, size = 'default', ...props }: CircleProps) => {
+    const theme = useTheme();
+
     return (
-        <div onClick={props.onClick} css={{
-            minWidth: '50px',
-            minHeight: '50px',
+        <div {...props} css={{
+            backgroundColor: theme.submitBgColor,
+            width: btnSize[size],
+            height: btnSize[size],
             borderRadius: '50%',
+            cursor: 'pointer',
             ...flex_center,
-            ...props.style
         }}>
             {children}
         </div>
