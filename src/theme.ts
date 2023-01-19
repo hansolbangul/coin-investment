@@ -3,24 +3,15 @@ import { Theme } from "@emotion/react";
 export const darkTheme: Theme = {
     bgColor: 'black',
     textColor: 'white',
-    accentColor: '#9c88ff',
-    cardBgColor: 'transparent',
+    accentColor: '#AFA8A4',
+    submitBgColor: '#DB6232',
+    submitTextColor: 'white',
 };
 
 export const lightTheme: Theme = {
-    bgColor: '#fff',
+    bgColor: '#F2EFEE',
     textColor: 'black',
-    accentColor: '#9c88ff',
-    cardBgColor: 'white',
+    accentColor: '#848280',
+    submitBgColor: '#DB6232',
+    submitTextColor: 'white',
 };
-
-export const flex_center = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-}
-
-export const flex_align_center = {
-    display: 'flex',
-    alignItems: 'center'
-}

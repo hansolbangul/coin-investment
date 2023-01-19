@@ -9,6 +9,9 @@ declare module '@emotion/react' {
         bgColor: string;
         textColor: string;
         accentColor: string;
-        cardBgColor: string
+        submitBgColor: string;
+        submitTextColor: string;
+        cancelBgColor?: string;
+        cancelTextColor?: string;
     }
 }
