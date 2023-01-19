@@ -1,9 +1,10 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState } from "react";
-import { flex_align_center } from "../../theme";
+import React from "react";
 import { Switch } from "../Switch";
 import { useRecoilState } from "recoil";
 import { isDarkAtom } from "../../atoms";
+import { flex_align_center } from "../../global";
+import styled from "@emotion/styled";
 
 export const Header = () => {
     const [isDark, setIsDark] = useRecoilState(isDarkAtom);
@@ -11,15 +12,19 @@ export const Header = () => {
     const toggleSwitch = () => setIsDark(!isDark);
 
     return (
-        <div css={{
+        <HeaderForm css={{
             ...flex_align_center,
-            width: '100vw',
-            height: '80px',
-            fontWeight: 700,
-            position: 'fixed'
         }}>
             <Switch width={20} onClick={toggleSwitch} value={isDark} />
-        </div>
+        </HeaderForm>
     )
 }
 
+const HeaderForm = styled.div`
+    width: 100vw;
+    height: 80px;
+    font-weight: 700;
+    position: fixed;
+    border-bottom: 1px solid ${props => props.theme.textColor};
+    padding: 6px 30px;
+`
