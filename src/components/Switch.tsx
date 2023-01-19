@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import styled from "@emotion/styled";
 import { MdLightMode, MdOutlineDarkMode } from "react-icons/md";
-import { flex_center } from "../theme";
+import { flex_center } from "../global";
 
 const spring = {
     type: "spring",
