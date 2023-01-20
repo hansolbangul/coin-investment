@@ -7,3 +7,8 @@ export interface Props extends React.ComponentProps<'div'> {
 export interface Size {
     [key: string]: string;
 }
+
+export interface Routes {
+    name: string,
+    nav: string
+} 
