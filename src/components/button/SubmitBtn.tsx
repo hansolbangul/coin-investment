@@ -10,6 +10,7 @@ interface Props extends React.ComponentProps<'button'> {
 }
 
 const btnSize: Size = {
+    small: '10px 20px',
     default: '18px 40px',
     big: '24px 40px'
 }
@@ -22,7 +23,8 @@ export const SubmitBtn = ({children, size = 'default', ...props}: Props) => {
             color: theme.submitTextColor,
             backgroundColor: theme.submitBgColor,
             padding: btnSize[size],
-            ...Btn
+            ...Btn,
+            border: 'none'
         }} {...props}>
             {children}
         </button>
