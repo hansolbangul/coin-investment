@@ -15,9 +15,6 @@ interface Props {
     color: string;
 }
 
-// 'https://api.upbit.com/v1/candles/minutes/30?market=KRW-BTC&count=50'
-
-
 export const LineChart = ({ market, minutes, count, color }: Props) => {
     const { data } = useFetch<LineProps[]>(UPBIT_API + `/candles/minutes/${minutes}?market=${market}&count=${count}`, [market, 'chart']);
 
