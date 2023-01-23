@@ -6,6 +6,7 @@ export const darkTheme: Theme = {
     accentColor: '#AFA8A4',
     submitBgColor: '#DB6232',
     submitTextColor: 'white',
+    ticketListBgColor: '#2E2D31'
 };
 
 export const lightTheme: Theme = {
@@ -14,4 +15,5 @@ export const lightTheme: Theme = {
     accentColor: '#848280',
     submitBgColor: '#DB6232',
     submitTextColor: 'white',
+    ticketListBgColor: '#fff'
 };

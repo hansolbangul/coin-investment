@@ -11,6 +11,7 @@ declare module '@emotion/react' {
         accentColor: string;
         submitBgColor: string;
         submitTextColor: string;
+        ticketListBgColor: string;
         cancelBgColor?: string;
         cancelTextColor?: string;
     }
