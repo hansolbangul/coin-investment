@@ -22,27 +22,27 @@ export const Header = () => {
 
     return (
         <HeaderSet
-            title="코인모의투자"
-            navs={[{name: 'main', nav: '/main'}]}
+            title=""
+            navs={[{ name: 'main', nav: '/main' }]}
         />
     )
 }
 
-const HeaderSet = ({title, navs}: HeaderProps) => {
+const HeaderSet = ({ title, navs }: HeaderProps) => {
     const [isDark, change] = useDark();
 
     return (
         <HeaderForm>
             <HeaderForm.Title label={title} />
             <HeaderForm.Nav>
-                {navs.map((item, index) => <HeaderForm.NavItem nav={item} key={index}/>)}
+                {navs.map((item, index) => <HeaderForm.NavItem nav={item} key={index} />)}
             </HeaderForm.Nav>
             <HeaderForm.Btn as={
                 <>
                     <CancelBtn>Sign In</CancelBtn>
                     <SubmitBtn>Sign UP</SubmitBtn>
                 </>
-            }/>
+            } />
             <HeaderForm.Toggle>
                 <Switch width={20} onClick={change} value={isDark} />
             </HeaderForm.Toggle>
