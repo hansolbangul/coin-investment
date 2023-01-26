@@ -4,9 +4,9 @@ import {
     VictoryChart, VictoryLine,
     VictoryTheme
 } from 'victory';
-import { UPBIT_API } from "../../api/uri";
-import { useFetch } from "../../hoc/useFetch";
-import { LineProps, ticketList } from "../../services/interface";
+import { UPBIT_API } from "../../../api/uri";
+import { useFetch } from "../../../hoc/useFetch";
+import { LineProps, TicketLists } from "../../../services/interface";
 
 interface Props {
     minutes: number;

@@ -1,17 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import React from "react";
 import { Switch } from "../Switch";
-import { useRecoilState } from "recoil";
-import { isDarkAtom } from "../../atoms";
-import { flex_align_center } from "../../global";
-import styled from "@emotion/styled";
-import { useTheme } from "@emotion/react";
-import { SubmitBtn } from "../button/SubmitBtn";
-import { CancelBtn } from "../button/CancelBtn";
-import { Flex } from "../components/Direction";
 import { HeaderForm } from "./HeaderForm";
 import { Routes } from "../../services/interface";
 import { useDark } from "../../hoc/useDark";
+import { CancelBtn, SubmitBtn } from "../button";
 
 interface HeaderProps {
     title: string,
@@ -22,8 +15,8 @@ export const Header = () => {
 
     return (
         <HeaderSet
-            title=""
-            navs={[{ name: 'main', nav: '/main' }]}
+            title="코인 모의투자"
+            navs={[{ name: '투자하기', nav: '/trade' }]}
         />
     )
 }

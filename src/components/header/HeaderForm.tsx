@@ -3,9 +3,8 @@ import React from "react";
 import { useRecoilState } from "recoil";
 import { isDarkAtom } from "../../atoms";
 import { useTheme } from "@emotion/react";
-import { Flex } from "../components/Direction";
 import { Routes } from "../../services/interface";
-import { Link } from "react-router-dom";
+import { Flex, Nav } from "../components";
 
 interface Props extends React.ComponentProps<'div'> {
     children: React.ReactNode;
@@ -39,9 +38,11 @@ export const HeaderForm = ({ children }: Props) => {
 
 HeaderForm.Title = ({ label }: { label: string }) => {
     return (
-        <>
+        <Nav to="/" style={{
+            fontSize: '2.6vmin'
+        }}>
             {label}
-        </>
+        </Nav>
     )
 }
 
@@ -49,7 +50,8 @@ HeaderForm.Nav = ({ children }: Props) => {
     return (
         <Flex.AlignCenter css={{
             flex: '1 1 auto',
-            padding: '0 10px'
+            padding: '0 10px',
+            fontSize: '1.8vmin'
         }}>
             {children}
         </Flex.AlignCenter>
@@ -58,9 +60,9 @@ HeaderForm.Nav = ({ children }: Props) => {
 
 HeaderForm.NavItem = ({ nav }: { nav: Routes }) => {
     return (
-        <Link to={nav.nav}>
+        <Nav to={nav.nav}>
             {nav.name}
-        </Link>
+        </Nav>
     )
 }
 

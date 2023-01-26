@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useOpen } from "../../../hoc/useOpen";
 import { Props } from "../../../services/interface";
-import { Flex } from "../../components/Direction";
-import { Direction } from "../../components/Flex";
+import { Direction, Flex } from "../../components";
 
 interface DropProps {
     label?: string;
@@ -11,7 +10,7 @@ interface DropProps {
     children: React.ReactNode;
 }
 
-export const TouchDropdown = ({label, value, children}: DropProps ) => {
+export const TouchDropdown = ({ label, value, children }: DropProps) => {
 
     return (
         <Direction
@@ -26,7 +25,7 @@ export const TouchDropdown = ({label, value, children}: DropProps ) => {
     )
 }
 
-TouchDropdown.Header = ({children}: Props) => {
+TouchDropdown.Header = ({ children }: Props) => {
 
     return (
         <Flex>
@@ -36,7 +35,7 @@ TouchDropdown.Header = ({children}: Props) => {
 }
 
 
-TouchDropdown.Body = ({children}: Props) => {
+TouchDropdown.Body = ({ children }: Props) => {
 
     return (
         <Direction>
@@ -46,7 +45,7 @@ TouchDropdown.Body = ({children}: Props) => {
 }
 
 
-TouchDropdown.Trigger = ({as, onClick}: {as: React.ReactNode; onClick: () => void}) => {
+TouchDropdown.Trigger = ({ as, onClick }: { as: React.ReactNode; onClick: () => void }) => {
     return (
         <div onClick={onClick}>
             {as}
@@ -54,7 +53,7 @@ TouchDropdown.Trigger = ({as, onClick}: {as: React.ReactNode; onClick: () => voi
     )
 }
 
-TouchDropdown.Menu = ({children, value}: {children: React.ReactNode; value: any}) => {
+TouchDropdown.Menu = ({ children, value }: { children: React.ReactNode; value: any }) => {
     return (
         <Flex>
             {children}
@@ -62,7 +61,7 @@ TouchDropdown.Menu = ({children, value}: {children: React.ReactNode; value: any}
     )
 }
 
-TouchDropdown.View = ({children}: {children?: React.ReactNode}) => {
+TouchDropdown.View = ({ children }: { children?: React.ReactNode }) => {
     return (
         <div>
             {children}

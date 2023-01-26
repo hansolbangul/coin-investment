@@ -3,8 +3,8 @@ import React from "react";
 import { css, keyframes, useTheme } from "@emotion/react";
 import { Props } from "../../services/interface";
 import { Circle } from "../circles/Circle";
-import { Flex } from "../components/Direction";
 import { ImArrowUpRight2 } from "react-icons/im";
+import { Flex } from "../components";
 
 interface divProps extends Props {
     children: string;
@@ -24,9 +24,9 @@ const floating = keyframes`
     }
 `
 
-export const PostBtn = ({children, onClick, ani = false, ...props}: divProps) => {
+export const PostBtn = ({ children, onClick, ani = false, ...props }: divProps) => {
     const theme = useTheme();
-    const animation = ani ?  {
+    const animation = ani ? {
         animation: `${floating} 2s ease infinite`,
         animationDuration: '2s'
     } : {}

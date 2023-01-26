@@ -2,24 +2,22 @@
 import React from "react";
 import { Props } from "../../services/interface";
 
-export const Direction = ({children, ...props}: Props) => {
+export const Flex = ({ children, ...props }: Props) => {
     return (
         <div {...props} css={{
             ...props.style,
             display: 'flex',
-            flexDirection: 'column',
         }}>
             {children}
         </div>
     )
 }
 
-Direction.JustifyCenter = ({children, ...props}: Props) => {
+Flex.JustifyCenter = ({ children, ...props }: Props) => {
     return (
         <div {...props} css={{
             ...props.style,
             display: 'flex',
-            flexDirection: 'column',
             justifyContent: 'center',
         }}>
             {children}
@@ -27,12 +25,11 @@ Direction.JustifyCenter = ({children, ...props}: Props) => {
     )
 }
 
-Direction.AlignCenter = ({children, ...props}: Props) => {
+Flex.AlignCenter = ({ children, ...props }: Props) => {
     return (
         <div {...props} css={{
             ...props.style,
             display: 'flex',
-            flexDirection: 'column',
             alignItems: 'center'
         }}>
             {children}
@@ -40,12 +37,11 @@ Direction.AlignCenter = ({children, ...props}: Props) => {
     )
 }
 
-Direction.Center = ({children, ...props}: Props) => {
+Flex.Center = ({ children, ...props }: Props) => {
     return (
         <div {...props} css={{
             ...props.style,
             display: 'flex',
-            flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center'
         }}>

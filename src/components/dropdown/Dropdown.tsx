@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React from "react";
-import { Direction } from "../components/Flex";
+import { Direction } from "../components";
 
 interface DropProps {
     label?: string;
@@ -8,7 +8,7 @@ interface DropProps {
     children: React.ReactNode;
 }
 
-export const Dropdown = ({label, value, children}: DropProps ) => {
+export const Dropdown = ({ label, value, children }: DropProps) => {
 
     return (
         <Direction
@@ -22,7 +22,7 @@ export const Dropdown = ({label, value, children}: DropProps ) => {
     )
 }
 
-Dropdown.Trigger = ({as, onClick}: {as: React.ReactNode; onClick: () => void}) => {
+Dropdown.Trigger = ({ as, onClick }: { as: React.ReactNode; onClick: () => void }) => {
     return (
         <div onClick={onClick}>
             {as}
@@ -30,7 +30,7 @@ Dropdown.Trigger = ({as, onClick}: {as: React.ReactNode; onClick: () => void}) =
     )
 }
 
-Dropdown.Menu = ({children}: {children: React.ReactNode}) => {
+Dropdown.Menu = ({ children }: { children: React.ReactNode }) => {
     return (
         <div>
             {children}
@@ -38,7 +38,7 @@ Dropdown.Menu = ({children}: {children: React.ReactNode}) => {
     )
 }
 
-Dropdown.Item = ({children, onClick}: {
+Dropdown.Item = ({ children, onClick }: {
     children: string, onClick: (value: string) => void
 }) => {
     return (
