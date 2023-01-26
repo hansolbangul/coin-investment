@@ -2,14 +2,12 @@
 import { useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import React, { useEffect, useState } from "react";
-import { ticketList } from "../../../services/interface";
-import { krwPriceFormat, Percent } from "../../../utils/priceFormat";
-import { LineChart } from "../../chart/LineChart";
-import { Flex } from "../../components/Direction";
-
-interface Div {
-    data: ticketList[];
-}
+import { UPBIT_API } from "../../../api/uri";
+import { useFetch } from "../../../hoc/useFetch";
+import { coinList, TicketLists } from "../../../services/interface";
+import { Flex } from "../../components";
+import { TicketData } from "./TicketData";
+import { TicketHeader } from "./TicketHeader";
 
 interface Props {
     children: React.ReactNode;
@@ -19,27 +17,25 @@ interface TableProps extends React.ComponentProps<'table'> {
     children: React.ReactNode;
 }
 
-export function TicketList({ data }: Div) {
+export function TicketList({ long = true }: { long?: boolean }) {
     const theme = useTheme();
+    const [isData, setIsData] = useState<TicketLists[]>([]);
+    const coinList = useFetch<coinList[]>(UPBIT_API + '/market/all?isDetails=false', 'coinList').data.filter(item => item.market.substring(0, 3) === 'KRW');
+    const { data: tickerList } = useFetch<TicketLists[]>(UPBIT_API + `/ticker?markets=${coinList.slice(0, 20).map(item => item.market).join(', ')}`, 'ticker');
+
+    useEffect(() => {
+        setIsData(() => tickerList.map((item, index) => ({ ...item, ...coinList[index] })));
+    }, [])
     return (
 
         <TicketList.Table style={{
             backgroundColor: theme.ticketListBgColor,
         }}>
             <TicketList.Header>
-                <TicketList.Column>
-                    <TicketList.Menu>Name</TicketList.Menu>
-                    <TicketList.Menu>Price</TicketList.Menu>
-                    <TicketList.Menu>52주 최고가</TicketList.Menu>
-                    <TicketList.Menu>52주 최저가</TicketList.Menu>
-                    <TicketList.Menu>Change 24H</TicketList.Menu>
-                    <TicketList.Menu>Trade 24H</TicketList.Menu>
-                    <TicketList.Menu>Chart</TicketList.Menu>
-                </TicketList.Column>
+                <TicketHeader long={long} />
             </TicketList.Header>
             <TicketList.Body>
-                {/* {data.map(({ market, korean_name, trade_price, change, change_rate }) => { */}
-                {data.map((item) => {
+                {isData.map((item) => {
                     const icon = item.market.split('-')[1].toLowerCase()
                     const changeInfo = item.change === 'RISE' ? {
                         color: '#c43a31',
@@ -49,37 +45,7 @@ export function TicketList({ data }: Div) {
                         text: '-'
                     }
                     return (
-                        <TicketList.Column key={item.korean_name}>
-                            <TicketList.Menu>
-                                <img width={30} src={`https://coinicons-api.vercel.app/api/icon/${icon}`} alt={icon} />
-                                {item.korean_name}
-                            </TicketList.Menu>
-                            <TicketList.Menu>
-                                {krwPriceFormat(item.trade_price)}
-                            </TicketList.Menu>
-                            <TicketList.Menu>
-                                {krwPriceFormat(item.highest_52_week_price)}
-                            </TicketList.Menu>
-                            <TicketList.Menu>
-                                {krwPriceFormat(item.lowest_52_week_price)}
-                            </TicketList.Menu>
-                            <TicketList.Menu
-                                color={changeInfo.color}
-                            >
-                                {changeInfo.text} {Percent(item.change_rate)}
-                            </TicketList.Menu>
-                            <TicketList.Menu>
-                                {krwPriceFormat(item.acc_trade_price_24h)}
-                            </TicketList.Menu>
-                            <TicketList.Menu>
-                                <LineChart
-                                    market={item.market}
-                                    minutes={1}
-                                    count={200}
-                                    color={changeInfo.color}
-                                />
-                            </TicketList.Menu>
-                        </TicketList.Column>
+                        <TicketData long={long} key={item.market} data={item} changeInfo={changeInfo} icon={icon} />
                     )
                 })}
             </TicketList.Body>
