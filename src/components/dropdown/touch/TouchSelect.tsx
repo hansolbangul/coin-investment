@@ -2,7 +2,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useFetch } from "../../../hoc/useFetch";
 import { useOpen } from "../../../hoc/useOpen";
-import { ticketList } from "../../../services/interface";
+import { TicketLists } from "../../../services/interface";
 import { TouchDropdown } from "./TouchDropdown";
 
 interface HeaderProps {
@@ -15,7 +15,7 @@ interface Props {
     value: string;
     onChange: (value: string) => void;
     // options: string[];
-    body: ticketList[];
+    body: TicketLists[];
     head: HeaderProps
 }
 
