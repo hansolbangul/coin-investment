@@ -20,7 +20,7 @@ export interface coinList {
 
 }
 
-export interface ticketList {
+export interface TicketLists {
     market: string;
     trade_date: string;
     trade_time: string;
